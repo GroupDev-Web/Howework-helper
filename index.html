@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Homework Helper</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            background: #007BFF;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 15px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .response {
+            margin-top: 20px;
+            padding: 10px;
+            background: #e9ecef;
+            border-left: 5px solid #007BFF;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>AI Homework Helper</h1>
+</header>
+
+<div class="container">
+    <h2>Ask a Question</h2>
+    <input type="text" id="question" placeholder="Type your homework question here...">
+    <button onclick="searchWeb()">Search the Web</button>
+
+    <div class="response" id="response" style="display: none;"></div>
+</div>
+
+<script>
+    function searchWeb() {
+        const question = document.getElementById('question').value;
+
+        if (question.trim() === "") {
+            alert("Please enter a question!");
+            return;
+        }
+
+        // Open a new search tab with the query
+        const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(question)}`;
+        window.open(searchUrl, '_blank');
+    }
+</script>
+
+</body>
+</html>
